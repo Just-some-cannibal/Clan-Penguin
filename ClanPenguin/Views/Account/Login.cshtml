@@ -1,0 +1,24 @@
+﻿@model ClanPenguin.ViewModels.LoginViewModel
+
+@section content {
+    <center>
+        <div class="comet-long-form-text">
+            <h1> Login </h1>
+        </div>
+        <form method="post" asp-controller="Account" asp-action="Login" class="comet-form">
+            <div asp-validation-summary="All" style=""></div>
+            <label name="Email" class="comet-form__label"> Username </label>
+            <input name="Email" class="comet-form__input">
+            <br>
+
+            <label name="Password" class="comet-form__label"> Password </label>
+            <input name="Password" class="comet-form__input" type="password">
+            <br>
+
+            <label name="RememberMe" class="comet-form__label"> Remember me </label>
+           @Html.CheckBoxFor(m => Model.RememberMe)
+            <br>
+            <input type="submit" value="Login" class="comet-button comet-button--primary">
+        </form>
+    </center>
+}

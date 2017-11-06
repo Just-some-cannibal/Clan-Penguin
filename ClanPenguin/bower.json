@@ -1,0 +1,11 @@
+{
+  "name": "asp.net",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "v4.0.0-beta",
+    "jQuery": "3.2.1",
+    "popper.js": "v1.12.4",
+    "svg4everybody": "v2.1.9",
+    "jquery-ui": "1.12.1"
+  }
+}

@@ -7,143 +7,69 @@
     <meta name="format-detection" content="telephone=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta charset="utf-8">
-    <environment names="Development">
-        <script src="~/lib/jquery/dist/jquery.js" type="text/javascript"></script>
-        <script src="~/lib/jquery-ui/jquery-ui.js"></script>
-        <script src="~/lib/svg4everybody/dist/svg4everybody.js"></script>
-        <script>svg4everybody()</script>
-        <link rel="stylesheet" href="~/css/site.css" />
-        <link rel="stylesheet" href="~/lib/comet/comet.css">
-        <script src="~/lib/comet/comet.js"></script>
-    </environment>
-    <environment names="Staging,Production">
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-                integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-                crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
-                integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
-                crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/svg4everybody/2.1.9/svg4everybody.legacy.min.js"
-                integrity="sha256-G9YRHgJRIlBrGDnNDqafosjTgDoNPcrMcslghv19qCI="
-                crossorigin="anonymous"></script>
-        <script>svg4everybody()</script>
-        <link rel="stylesheet" href="~/css/site.min.css" />
-        <link rel="stylesheet" href="~/lib/comet/comet.css">
-        <script src="~/lib/comet/comet.min.js"></script>
-    </environment>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/svg4everybody/2.1.9/svg4everybody.min.js"></script>
+    <link rel="stylesheet" href="~/css/site.css"/>
+    <link rel="stylesheet" href="~/lib/comet/comet.css">
+    <script src="~/lib/comet/comet.js"></script>
 </head>
 <body class="comet-page-shell--body-background">
-    <div class="comet-page-shell">
-        @{
-            string shellClass = "";
-            string style = "";
-            if (Model.Navbar == true)
-            {
-                shellClass = "comet-page-shell__product-well";
-            }
-            else
-            {
-                shellClass = "comet-page-shell";
-                style = "background-color: white";
-            }
+<div class="comet-page-shell">
+    @{
+        string shellClass = "";
+        string style = "";
+        if (Model.Navbar == true)
+        {
+            shellClass = "comet-page-shell__product-well";
         }
-        <div id="comet-page-shell__global-nav-bar" style="@style" class="@shellClass">
-            <div class="comet-page-shell__product-well-inner">
-                <div class="comet-product-bar js-comet-product-bar comet-product-bar--theme-product-science comet-product-bar__search-revealed-static">
-                    <button class="comet-button comet-product-bar__product-title comet-dropdown-trigger js-comet-dropdown-trigger" data-comet-popover='navigation' haspopup='true'>
-                        <svg class="comet-product-bar__product-title-icon" aria-hidden="true" focusable="false">
-                            <use xlink:href="@Url.Content("~/lib/comet/comet.svg")#home"></use>
-                        </svg>
-                        <span class="comet-screenreader-only">Home</span>
-                    </button>
-                    <div class="comet-dropdown-menu comet-popover comet-popover--bottom-left-aligned" id="navigation" data-comet-popover-align="left">
-                        <div class="comet-list-group comet-dropdown-menu__list-group comet-list-group--no-hairlines">
-                            <ul class="comet-list-group__list">
-                                <li class="comet-list-group__row">
-                                    <a class="comet-list-group__row-anchor" href="/">
-                                        <span class="comet-list-group__row-label">
-                                            Home
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="comet-list-group__row">
-                                    <a class="comet-list-group__row-anchor" href="/chatroom">
-                                        <span class="comet-list-group__row-label">
-                                            Chatroom
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="comet-list-group__row">
-                                    <a class="comet-list-group__row-anchor" href="/about">
-                                        <span class="comet-list-group__row-label">
-                                            About
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+        else
+        {
+            shellClass = "comet-page-shell";
+            style = "background-color: white";
+        }
+    }
+    <div id="comet-page-shell__global-nav-bar" style="@style" class="@shellClass">
+        <div class="comet-page-shell__product-well-inner">
+            <div class="comet-product-bar js-comet-product-bar comet-product-bar--theme-product-science comet-product-bar__search-revealed-static">
+                <button class="comet-button comet-product-bar__product-title comet-dropdown-trigger js-comet-dropdown-trigger" data-comet-popover='navigation' haspopup='true'>
+                    <svg class="comet-product-bar__product-title-icon" aria-hidden="true" focusable="false">
+                        <use xlink:href="@Url.Content("~/lib/comet/comet.svg")#home"></use>
+                    </svg>
+                    <span class="comet-screenreader-only">Home</span>
+                </button>
+                <div class="comet-dropdown-menu comet-popover comet-popover--bottom-left-aligned" id="navigation" data-comet-popover-align="left">
+                    <div class="comet-list-group comet-dropdown-menu__list-group comet-list-group--no-hairlines">
+                        <ul class="comet-list-group__list">
+                            <li class="comet-list-group__row">
+                                <a class="comet-list-group__row-anchor" href="/">
+                                    <span class="comet-list-group__row-label">
+                                        Home
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="comet-list-group__row">
+                                <a class="comet-list-group__row-anchor" href="/chatroom">
+                                    <span class="comet-list-group__row-label">
+                                        Chatroom
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="comet-list-group__row">
+                                <a class="comet-list-group__row-anchor" href="/about">
+                                    <span class="comet-list-group__row-label">
+                                        About
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    @RenderSection("product", required: false)
-                    <ul class="comet-product-bar__actions">
-                        <li class="comet-product-bar__action comet-product-bar__action--profile">
-                            <button class="comet-button comet-button--small comet-product-bar__action-link comet-dropdown-trigger js-comet-dropdown-trigger comet-button--icon-only" data-comet-popover="comet-product-bar__dropdown-menu--profile-87773">
-                                <svg class="comet-product-bar__action-icon" aria-hidden="true" focusable="false">
-                                    <use xlink:href="@Url.Content("~/lib/comet/comet.svg")#profile"></use>
-                                </svg>
-                                <span class='comet-screenreader-only'>Show Profile</span>
-                            </button>
-                            <div class="comet-product-bar__profile-dropdown comet-dropdown-menu comet-popover comet-popover--bottom-right-aligned" id="comet-product-bar__dropdown-menu--profile-87773" data-comet-popover-align="left">
-                                <div class="comet-list-group comet-theme--dark-background comet-dropdown-menu__list-group comet-list-group--no-hairlines">
-                                    <div class="comet-product-bar__profile-dropdown-header">
-                                        <h3 class="comet-product-bar__profile-dropdown-header-title">Account</h3>
-                                        <a class="comet-product-bar__profile-dropdown-header-close js-comet-dropdown-trigger" data-comet-popover="comet-product-bar__dropdown-menu--profile-87773" href="#">
-                                            <svg class="comet-product-bar__profile-dropdown-header-close-icon" aria-hidden="true" focusable="false">
-                                                <use xlink:href="@Url.Content("~/lib/comet/comet.svg")#x"></use>
-                                            </svg>
-                                            <span class="comet-screenreader-only">Close</span>
-                                        </a>
-                                    </div>
-                                    <ul class="comet-list-group__list">
-                                        <li class="comet-list-group__row comet-product-bar__profile-dropdown-name-row">
-                                            <a class="comet-list-group__row-anchor" href="#href.goes.here.html">
-                                                <svg aria-hidden="true" focusable="false" class="comet-list-group__avatar">
-                                                    <use xlink:href="@Url.Content("~/lib/comet/comet.svg")#profile"></use>
-                                                </svg>
-                                                <span class="comet-list-group__row-label">
-                                                    <span class="comet-product-bar__view-profile-name-text">
-                                                        Connor
-                                                    </span>
-                                                    <span class="comet-product-bar__view-profile-link-text">View Profile</span>
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="comet-list-group__row">
-                                            <a class="comet-list-group__row-anchor" href="#">
-                                                <span class="comet-list-group__row-label">
-                                                    Help
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="comet-list-group__row">
-                                            <a class="comet-list-group__row-anchor" href="#">
-                                                <span class="comet-list-group__row-label">
-                                                    My Admin
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="comet-list-group__row">
-                                            <a class="comet-list-group__row-anchor" href="#">
-                                                <span class="comet-list-group__row-label">
-                                                    Logout
-                                                </span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        @if (Model.Sidebar)
-                        {
+                </div>
+                @RenderSection("product", required: false)
+                <ul class="comet-product-bar__actions">
+                    @Html.Partial("Account")
+                    @if (Model.Sidebar)
+                    {
                         <li class="comet-product-bar__action comet-product-bar__action--quicklist">
                             <a class="comet-button comet-product-bar__action-link comet-button--small js-comet-product-bar__toggle-panel" role="button" href="#path-to-quicklist">
                                 <svg class="comet-product-bar__action-icon comet-button--icon__icon" aria-hidden="true" focusable="false">
@@ -152,48 +78,48 @@
                                 <span class='comet-screenreader-only'>Quicklist</span>
                             </a>
                         </li>
-                        }
-                    </ul>
-                </div>
-                    @RenderSection("Content")
+                    }
+                </ul>
             </div>
-            @if (Model.Navbar == true)
-            {
-                <div class="comet-page-shell__product-well-overlay js-comet-page-shell__product-well-overlay">
-                    <div class="comet-page-shell__close-global-nav-bar-wrap">
-                        <a href="#comet-page-shell__product-well" class="comet-page-shell__close-global-nav-bar js-comet-page-shell__close-global-nav-bar">
-                            <span class="comet-screenreader-only">Jump to page content</span>
-                            <svg class="comet-page-shell__close-global-nav-bar-icon" aria-hidden="true" focusable="false">
-                                <use xlink:href="@Url.Content("~/lib/comet/comet.svg")#x"></use>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            }
+            @RenderSection("Content")
         </div>
         @if (Model.Navbar == true)
-            {
-            <div class="comet-page-shell__global-nav-bar js-comet-page-shell__global-nav-bar">
-                <div class="comet-page-shell__global-nav-bar-touch-overlay js-comet-page-shell_global-nav-bar-touch-overlay"></div>
-                @RenderSection("navbar", required: false)
-            </div>
-        }
-        @if (Model.Sidebar == true)
-            {
-            <div class="comet-page-shell__panel">
-                <div class="comet-page-shell__panel-content">
-                    <div class="comet-page-shell__close-panel-wrap">
-                        <a href="#comet-page-shell__product-well" class="comet-page-shell__close-panel js-comet-page-shell__close-panel">
-                            <span class="comet-screenreader-only">Jump to page content</span>
-                            <svg class="comet-page-shell__close-panel-icon" aria-hidden="true" focusable="false">
-                                <use xlink:href="@Url.Content("~/lib/comet/comet.svg")#x"></use>
-                            </svg>
-                        </a>
-                    </div>
-                    @RenderSection("sidebar", required: false)
+        {
+            <div class="comet-page-shell__product-well-overlay js-comet-page-shell__product-well-overlay">
+                <div class="comet-page-shell__close-global-nav-bar-wrap">
+                    <a href="#comet-page-shell__product-well" class="comet-page-shell__close-global-nav-bar js-comet-page-shell__close-global-nav-bar">
+                        <span class="comet-screenreader-only">Jump to page content</span>
+                        <svg class="comet-page-shell__close-global-nav-bar-icon" aria-hidden="true" focusable="false">
+                            <use xlink:href="@Url.Content("~/lib/comet/comet.svg")#x"></use>
+                        </svg>
+                    </a>
                 </div>
             </div>
         }
     </div>
+    @if (Model.Navbar == true)
+    {
+        <div class="comet-page-shell__global-nav-bar js-comet-page-shell__global-nav-bar">
+            <div class="comet-page-shell__global-nav-bar-touch-overlay js-comet-page-shell_global-nav-bar-touch-overlay"></div>
+            @RenderSection("navbar", required: false)
+        </div>
+    }
+    @if (Model.Sidebar == true)
+    {
+        <div class="comet-page-shell__panel">
+            <div class="comet-page-shell__panel-content">
+                <div class="comet-page-shell__close-panel-wrap">
+                    <a href="#comet-page-shell__product-well" class="comet-page-shell__close-panel js-comet-page-shell__close-panel">
+                        <span class="comet-screenreader-only">Jump to page content</span>
+                        <svg class="comet-page-shell__close-panel-icon" aria-hidden="true" focusable="false">
+                            <use xlink:href="@Url.Content("~/lib/comet/comet.svg")#x"></use>
+                        </svg>
+                    </a>
+                </div>
+                @RenderSection("sidebar", required: false)
+            </div>
+        </div>
+    }
+</div>
 </body>
 </html>

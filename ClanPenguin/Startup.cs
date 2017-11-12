@@ -3,9 +3,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using ClanPenguin.Models;
+using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.Configuration;
-using System.IO;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 
 namespace ClanPenguin
@@ -20,11 +19,11 @@ namespace ClanPenguin
 
             Configuration = builder.Build();
         }
-        public static IConfigurationRoot Configuration { get; set; }
+        private static IConfigurationRoot Configuration { get; set; }
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ClanPenguinContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<User, IdentityRole>()
                     .AddEntityFrameworkStores<ClanPenguinContext>()
@@ -48,7 +47,6 @@ namespace ClanPenguin
             }
 
             app.UseAuthentication();
-
             app.UseMvc(routes => routes.MapRoute(
                 "Main",                                            
                 "{action}/{user}",

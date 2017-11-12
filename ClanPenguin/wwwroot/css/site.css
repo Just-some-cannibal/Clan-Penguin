@@ -39,4 +39,8 @@ input[type="checkbox"].input-validation-error {
 
 .homebg {
     min-height: 100%;
+    min-width: 100%;
+    position: fixed;
+    background: url("../images/ClanPenguin.png");
+    background-size: cover;
 }

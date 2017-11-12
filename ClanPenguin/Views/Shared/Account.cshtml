@@ -1,0 +1,57 @@
+﻿@if (Context.User.Identity.IsAuthenticated)
+{
+    <li class="comet-product-bar__action comet-product-bar__action--profile">
+        <button class="comet-button comet-button--small comet-product-bar__action-link comet-dropdown-trigger js-comet-dropdown-trigger comet-button--icon-only" data-comet-popover="comet-product-bar__dropdown-menu--profile-87773">
+            <svg class="comet-product-bar__action-icon" aria-hidden="true" focusable="false">
+                <use xlink:href="@Url.Content("~/lib/comet/comet.svg")#profile"></use>
+            </svg>
+            <span class="comet-screenreader-only"> Show Profile </span>
+        </button>
+        <div class="comet-product-bar__profile-dropdown comet-dropdown-menu comet-popover comet-popover--bottom-right-aligned" id="comet-product-bar__dropdown-menu--profile-87773" data-comet-popover-align="left">
+            <div class="comet-list-group comet-theme--dark-background comet-dropdown-menu__list-group comet-list-group--no-hairlines">
+                <div class="comet-product-bar__profile-dropdown-header">
+                    <h3 class="comet-product-bar__profile-dropdown-header-title">Account</h3>
+                    <a class="comet-product-bar__profile-dropdown-header-close js-comet-dropdown-trigger" data-comet-popover="comet-product-bar__dropdown-menu--profile-87773" href="#">
+                        <svg class="comet-product-bar__profile-dropdown-header-close-icon" aria-hidden="true" focusable="false">
+                            <use xlink:href="@Url.Content("~/lib/comet/comet.svg")#x"></use>
+                        </svg>
+                        <span class="comet-screenreader-only">Close</span>
+                    </a>
+                </div>
+                <ul class="comet-list-group__list">
+                    <li class="comet-list-group__row comet-product-bar__profile-dropdown-name-row">
+                        <a class="comet-list-group__row-anchor" href="#href.goes.here.html">
+                            <svg aria-hidden="true" focusable="false" class="comet-list-group__avatar">
+                                <use xlink:href="@Url.Content("~/lib/comet/comet.svg")#profile"></use>
+                            </svg>
+                            <span class="comet-list-group__row-label">
+                                <span class="comet-product-bar__view-profile-name-text">
+                                    @Html.Raw(Context.User.Identity.Name)
+                                </span>
+                                <span class="comet-product-bar__view-profile-link-text">View Profile</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="comet-list-group__row">
+                        <a class="comet-list-group__row-anchor" href="/about">
+                            <span class="comet-list-group__row-label">
+                                Help
+                            </span>
+                        </a>
+                    </li>
+                    <li class="comet-list-group__row">
+                             <form method="post" action="/account/logout" style="margin: 0; padding: 0">
+                                 <input class="comet-list-group__row-label comet-list-group__row-anchor" style="background: rgba(0,0,0,0); border: none; margin: 0; font-size: 16px;" type="submit" value="Log out">
+                             </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </li>
+}
+else
+{
+    <a class="comet-product-bar__action-link comet-button comet-button--small" href = "/account/login">
+         <h4 style="color: white; margin: 0"> Login </h4>
+    </a>
+}

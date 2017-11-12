@@ -20,13 +20,13 @@ namespace ClanPenguin.Controllers
         [HttpGet]
         public IActionResult Register()
         {
-            RegisterViewModel Register = new RegisterViewModel
+            var register = new RegisterViewModel
             {
                 Name = "Sign up",
                 Navbar = false,
                 Sidebar = false
             };
-            return View(Register);
+            return View(register);
         }
 
         [HttpGet]
@@ -48,7 +48,7 @@ namespace ClanPenguin.Controllers
             {
                 return View(vm);
             }
-            User user = new User
+            var user = new User
             {
                 UserName = vm.UserName,
                 Email = vm.EmailAddress
@@ -61,9 +61,9 @@ namespace ClanPenguin.Controllers
             }
             else
             {
-                foreach (var Error in identityResult.Errors)
+                foreach (var error in identityResult.Errors)
                 {
-                    ModelState.AddModelError("", Error.Description);
+                    ModelState.AddModelError("", error.Description);
                 }
                 return View(vm);
             }
@@ -83,6 +83,13 @@ namespace ClanPenguin.Controllers
             }
             ModelState.AddModelError("", "Invalid Login");
             return View(vm);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
         }
     }
 }
